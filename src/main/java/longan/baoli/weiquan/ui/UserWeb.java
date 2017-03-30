@@ -26,6 +26,7 @@ public class UserWeb {
     @ApiOperation(value = "用户注册", notes = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String countDb(@RequestBody User user, HttpServletRequest request) {
+        System.out.println(request);
         return userService.userAdd(user);
     }
 
