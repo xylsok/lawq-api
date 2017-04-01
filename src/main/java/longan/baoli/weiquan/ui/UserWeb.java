@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by zhangzf on 17/3/30.
@@ -28,6 +29,11 @@ public class UserWeb {
     public String countDb(@RequestBody User user, HttpServletRequest request) {
         System.out.println(request);
         return userService.userAdd(user);
+    }
+    @ApiOperation(value = "查询用户", notes = "查询用户")
+    @RequestMapping(value = "/getusers", method = RequestMethod.GET)
+    public List<User> getUsers() {
+        return userService.getUsers();
     }
 
 }
